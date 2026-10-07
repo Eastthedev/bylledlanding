@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // 6. Peeps Three.js hover image trail
-  if (!isMobile) {
+  if (!isMobile && document.getElementById('peeps')) {
     const peepsTrail = new PeepsTrail(peeps);
     const peepsCanvas = document.querySelector('#peeps canvas');
     const uPos = { x: 0, y: 0 };
