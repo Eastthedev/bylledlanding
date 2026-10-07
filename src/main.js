@@ -160,17 +160,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText('contact@livelabs.africa');
+        await navigator.clipboard.writeText('hello@bylled.com');
         showToast('Email copied to clipboard!');
       } catch (err) {
-        showToast('contact@livelabs.africa');
+        showToast('hello@bylled.com');
       }
     });
   }
 
   // 11. Hero entrance intro timeline
   function createHeroIntroTimeline() {
-    const delays = [0.9, 0.7, 0.5, 0.3, 0.1, 0.1, 0.2, 0.4, 0.6, 0.8];
+    const delays = [0.85, 0.7, 0.55, 0.4, 0.25, 0.15, 0.1, 0.05, 0.1, 0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.95];
     const tl = gsap.timeline({
       delay: 0.25,
       defaults: { ease: 'power2.out', duration: 0.75 },
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             yPercent: 0,
             clipPath: 'inset(0% 0% 0% 0%)',
             duration: 0.75,
-            delay: (i) => delays[i] / 2,
+            delay: (i) => (delays[i] !== undefined ? delays[i] : 0.05 * i) / 2,
             ease: 'expo'
           }
         )
@@ -211,12 +211,12 @@ document.addEventListener('DOMContentLoaded', async () => {
           yPercent: 0,
           clipPath: 'inset(0% 0% 0% 0%)',
           duration: 0.75,
-          delay: (i) => delays[i] / 2,
+          delay: (i) => (delays[i] !== undefined ? delays[i] : 0.05 * i) / 2,
           ease: 'expo'
         }
       )
       .to('.index-hero h1 span:nth-of-type(2)', {
-        y: '8rem',
+        y: '5.6rem',
         duration: 1,
         ease: 'power2.inOut'
       }, 1)
