@@ -3,15 +3,16 @@ export function setupIntroSplit() {
   if (!introTextContainer) return;
 
   const rawLines = [
-    "LiveLabs [est. 2024] is a product studio focused on turning bold ideas",
-    "into scalable digital products. We partner with founders, operators, and",
-    "ambitious teams to design, build, and launch solutions that solve real",
-    "problems across Nigeria and Africa.",
+    "Bylled is a commerce and payments platform built for businesses that",
+    "sell on every channel. We enable merchants, artisans, and service",
+    "providers to create invoices, share secure payment links, and track",
+    "every sale from a single dashboard.",
     "*",
-    "From concept to execution, we create products that are human-centered,",
-    "market-ready, and built to drive meaningful impact. Whether incubating",
-    "internal ventures or collaborating with visionary partners, LiveLabs exists",
-    "to transform opportunities into products people actually use."
+    "Our platform meets customers on the channels they already use,",
+    "including WhatsApp, so payment never depends on a website visit.",
+    "Every transaction is recorded and its status updated automatically,",
+    "giving businesses the clarity and control they need to manage",
+    "their income with confidence."
   ];
 
   // Look for existing .index-intro-paragraph or create it
