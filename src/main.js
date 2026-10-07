@@ -249,10 +249,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     return tl;
   }
 
+  // Trigger hero intro
+  createHeroIntroTimeline().play();
+
   // 12. Master Timeline and Step-Based Scroll Orchestration
   if (isMobile) {
-    // Mobile mode: animate stats once visible
-    gsap.timeline()
+    // Reveal all sections on mobile for natural vertical scrolling
+    gsap.set(".index section", { autoAlpha: 1 });
+    gsap.timeline({ delay: 0.5 })
       .counter(".index-team [data-one] h4 span", { end: 78, duration: 1, ease: "steps(10)" })
       .counter(".index-team [data-two] h4", { end: 20, duration: 1, ease: "steps(10)" })
       .counter(".index-team [data-three] h4", { end: 31340, duration: 1, ease: "steps(10)" })
