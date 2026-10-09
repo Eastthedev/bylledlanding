@@ -285,3 +285,1146 @@
     font-size: clamp(3.6rem, 11vw, 4.6rem) !important;
   }
 }
+
+/* ==========================================================================
+   INVOICE TEMPLATES SHOWCASE SECTION ("Your invoice, your look.")
+   ========================================================================== */
+
+.index-invoices {
+  background-color: #f7f4ee;
+  color: #161616;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "PP Neue Montreal", "Inter", sans-serif;
+  z-index: 5;
+}
+
+@media (max-width: 759px) {
+  .index-invoices {
+    height: auto !important;
+    min-height: 100vh;
+    padding: 7rem 2rem 6rem !important;
+    overflow-y: visible !important;
+    visibility: visible !important;
+  }
+}
+
+.index-invoices-inner {
+  width: 100%;
+  max-width: 138rem;
+  padding: 3rem 6rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 759px) {
+  .index-invoices-inner {
+    padding: 0;
+    max-width: 100%;
+  }
+}
+
+/* Header */
+.index-invoices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.8rem;
+}
+
+@media (max-width: 759px) {
+  .index-invoices-header {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2.4rem;
+  }
+}
+
+.index-invoices-title {
+  color: #141414;
+  font-family: -apple-system, BlinkMacSystemFont, "PP Neue Montreal", "Inter", sans-serif;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+@media (max-width: 759px) {
+  .index-invoices-title {
+    font-size: 3.2rem;
+  }
+}
+
+.index-invoices-subtitle {
+  color: #55534e;
+  font-size: 1.65rem;
+  font-weight: 400;
+  line-height: 1.45;
+  max-width: 36rem;
+  margin: 0;
+  padding-top: 0.6rem;
+}
+
+@media (max-width: 759px) {
+  .index-invoices-subtitle {
+    font-size: 1.4rem;
+    max-width: 100%;
+    padding-top: 0;
+  }
+}
+
+/* Main Two-Column Layout */
+.index-invoices-main {
+  display: grid;
+  grid-template-columns: 41rem 1fr;
+  gap: 4.8rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .index-invoices-main {
+    grid-template-columns: 36rem 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 759px) {
+  .index-invoices-main {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Left Column: Live Preview Card */
+.index-invoices-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.index-invoices-preview-card {
+  background: #ffffff;
+  border-radius: 1.2rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  height: 54rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@media (max-width: 759px) {
+  .index-invoices-preview-card {
+    height: 48rem;
+  }
+}
+
+.index-invoices-preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.4rem;
+  padding: 0 0.4rem;
+}
+
+.index-invoices-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.index-invoices-active-name {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #141414;
+  letter-spacing: -0.01em;
+}
+
+.index-invoices-active-badge {
+  background: #141414;
+  color: #f2ae38;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.index-invoices-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.index-invoices-nav-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid #dcd7ce;
+  background: #ffffff;
+  color: #141414;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  padding: 0;
+}
+
+.index-invoices-nav-btn:hover {
+  background: #141414;
+  color: #ffffff;
+  border-color: #141414;
+}
+
+.index-invoices-counter {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #72706a;
+  min-width: 3.4rem;
+  text-align: center;
+}
+
+/* Right Column: 8 Thumbnails Grid + Explanatory Text */
+.index-invoices-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.index-invoices-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}
+
+@media (max-width: 900px) {
+  .index-invoices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 759px) {
+  .index-invoices-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+.index-invoices-thumb {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  outline: none;
+  transition: transform 0.18s ease;
+}
+
+.index-invoices-thumb:hover {
+  transform: translateY(-2px);
+}
+
+.index-invoices-thumb-sheet {
+  width: 100%;
+  height: 16.2rem;
+  background: #ffffff;
+  border-radius: 0.8rem;
+  border: 1.5px solid #e7e2d8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 759px) {
+  .index-invoices-thumb-sheet {
+    height: 13.5rem;
+    padding: 0.8rem;
+  }
+}
+
+.index-invoices-thumb.active .index-invoices-thumb-sheet {
+  border-color: #141414;
+  box-shadow: 0 0 0 2px #141414, 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.index-invoices-thumb-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #222;
+  padding: 0 0.2rem;
+}
+
+.thumb-pro-pill {
+  background: #ede8df;
+  color: #66635c;
+  font-size: 1.0rem;
+  font-weight: 600;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.index-invoices-thumb.active .thumb-pro-pill {
+  background: #141414;
+  color: #f2ae38;
+}
+
+/* Info and Prompt Text */
+.index-invoices-info {
+  margin-top: 2.8rem;
+}
+
+@media (max-width: 759px) {
+  .index-invoices-info {
+    margin-top: 2rem;
+  }
+}
+
+.index-invoices-desc {
+  font-size: 1.55rem;
+  color: #2b2a27;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 0.9rem 0;
+}
+
+.index-invoices-prompt {
+  font-size: 1.4rem;
+  color: #686660;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.index-invoices-prompt strong {
+  color: #141414;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   MINI GRAPHICS FOR THUMBNAIL SHEETS
+   ========================================================================== */
+
+/* Classic */
+.thumb-classic .t-classic-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.thumb-classic .t-dot-gold {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #d4a037;
+  flex-shrink: 0;
+}
+.thumb-classic .t-bar {
+  height: 0.5rem;
+  width: 4rem;
+  background: #e2ded5;
+  border-radius: 2px;
+}
+.thumb-classic .t-classic-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: auto 0;
+}
+.thumb-classic .t-line-gold {
+  height: 0.5rem;
+  width: 70%;
+  background: #eeddbb;
+  border-radius: 2px;
+}
+.thumb-classic .t-line,
+.thumb-wordmark .t-line,
+.thumb-editorial .t-line,
+.thumb-statement .t-line,
+.thumb-folio .t-line {
+  height: 0.4rem;
+  width: 100%;
+  background: #eeebe3;
+  border-radius: 2px;
+}
+.thumb-classic .t-classic-bot {
+  display: flex;
+  justify-content: flex-end;
+}
+.thumb-classic .t-tag-gold {
+  width: 3.6rem;
+  height: 1.2rem;
+  background: #f7e6c0;
+  border-radius: 2px;
+}
+
+/* Wordmark */
+.thumb-wordmark .t-wm-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.thumb-wordmark .t-wm-bold {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #111;
+}
+.thumb-wordmark .t-dot-gold {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #d4a037;
+}
+.thumb-wordmark .t-wm-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: auto 0;
+}
+.thumb-wordmark .t-wm-bot {
+  display: flex;
+  justify-content: flex-end;
+}
+.thumb-wordmark .t-line-dark {
+  height: 0.5rem;
+  width: 3.5rem;
+  background: #222;
+  border-radius: 2px;
+}
+
+/* Monolith */
+.thumb-monolith {
+  flex-direction: row !important;
+  padding: 0 !important;
+}
+.thumb-monolith .t-mono-strip {
+  width: 2.2rem;
+  height: 100%;
+  background: #111;
+}
+.thumb-monolith .t-mono-content {
+  flex: 1;
+  padding: 1rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.thumb-monolith .t-line-dark {
+  height: 0.5rem;
+  width: 5rem;
+  background: #111;
+  border-radius: 2px;
+}
+.thumb-monolith .t-mono-block {
+  height: 3.4rem;
+  background: #f4f2ec;
+  border-radius: 2px;
+  border: 1px dashed #dcd8cc;
+}
+.thumb-monolith .t-mono-total {
+  height: 0.6rem;
+  width: 4rem;
+  background: #111;
+  border-radius: 2px;
+  align-self: flex-end;
+}
+
+/* Editorial */
+.thumb-editorial .t-edit-head {
+  height: 0.4rem;
+  width: 50%;
+  background: #111;
+  border-radius: 2px;
+}
+.thumb-editorial .t-edit-title {
+  margin: 0.8rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.thumb-editorial .t-edit-h1 {
+  height: 0.8rem;
+  width: 80%;
+  background: #111;
+  border-radius: 2px;
+}
+.thumb-editorial .t-edit-h2 {
+  height: 0.5rem;
+  width: 60%;
+  background: #888;
+  border-radius: 2px;
+}
+.thumb-editorial .t-edit-divider {
+  border-bottom: 2px solid #111;
+  margin-bottom: 0.6rem;
+}
+.thumb-editorial .t-edit-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.thumb-editorial .t-edit-bot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+.thumb-editorial .t-edit-sig {
+  width: 2.6rem;
+  height: 0.8rem;
+  border-bottom: 1.5px solid #111;
+}
+
+/* Atelier */
+.thumb-atelier {
+  text-align: center;
+}
+.thumb-atelier .t-atelier-mono {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  border: 1px solid #111;
+  font-size: 0.75rem;
+  font-family: Georgia, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.thumb-atelier .t-atelier-center {
+  margin: 0.4rem 0;
+}
+.thumb-atelier .t-atelier-title {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #111;
+  display: block;
+}
+.thumb-atelier .t-line-center {
+  height: 0.3rem;
+  width: 50%;
+  background: #e6e2d8;
+  margin: 0.3rem auto 0;
+  border-radius: 2px;
+}
+.thumb-atelier .t-atelier-dotted {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.6rem 0;
+}
+.thumb-atelier .t-atelier-dotted span {
+  height: 1px;
+  border-bottom: 1px dotted #bbb;
+  width: 100%;
+}
+.thumb-atelier .t-atelier-sig {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+.thumb-atelier .t-sig-line {
+  width: 3.5rem;
+  height: 1.5px;
+  background: #222;
+}
+
+/* Statement */
+.thumb-statement {
+  padding: 0 !important;
+}
+.thumb-statement .t-stmt-header {
+  background: #141414;
+  color: #f2ae38;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.thumb-statement .t-stmt-title {
+  height: 0.3rem;
+  width: 4rem;
+  background: #444;
+  border-radius: 2px;
+}
+.thumb-statement .t-stmt-num {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f2ae38;
+}
+.thumb-statement .t-stmt-body {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Ledger */
+.thumb-ledger .t-ledger-top {
+  display: flex;
+  justify-content: space-between;
+}
+.thumb-ledger .t-ledger-brand {
+  height: 0.5rem;
+  width: 4rem;
+  background: #111;
+}
+.thumb-ledger .t-ledger-code {
+  height: 0.4rem;
+  width: 2.5rem;
+  background: #bbb;
+}
+.thumb-ledger .t-ledger-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 0.4rem;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+  padding: 0.6rem 0;
+  margin: auto 0;
+}
+.thumb-ledger .t-grid-col {
+  height: 3.2rem;
+  background: #f7f6f2;
+}
+.thumb-ledger .t-ledger-bot {
+  display: flex;
+  justify-content: flex-end;
+}
+.thumb-ledger .t-ledger-tot {
+  height: 0.6rem;
+  width: 3.5rem;
+  background: #111;
+}
+
+/* Folio */
+.thumb-folio {
+  flex-direction: row !important;
+  gap: 0.8rem;
+}
+.thumb-folio .t-folio-left {
+  width: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.thumb-folio .t-dot-gold {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #d4a037;
+}
+.thumb-folio .t-bar-vert {
+  width: 0.3rem;
+  height: 100%;
+  background: #e2ded5;
+}
+.thumb-folio .t-folio-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+.thumb-folio .t-line-bold {
+  height: 0.7rem;
+  width: 60%;
+  background: #111;
+  border-radius: 2px;
+}
+.thumb-folio .t-tag-dark {
+  height: 1.2rem;
+  width: 4rem;
+  background: #111;
+  border-radius: 2px;
+  align-self: flex-end;
+}
+
+/* ==========================================================================
+   LIVE PREVIEW INVOICE TEMPLATES STYLING
+   ========================================================================== */
+
+.inv-doc {
+  height: 100%;
+  width: 100%;
+  padding: 3rem 3.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #1a1a1a;
+  overflow-y: auto;
+}
+
+@media (max-width: 759px) {
+  .inv-doc {
+    padding: 2.2rem 2rem;
+  }
+}
+
+.inv-label {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #77746e;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.inv-text-right {
+  text-align: right;
+}
+
+.inv-watermark {
+  font-size: 1.05rem;
+  color: #9c9991;
+  display: block;
+  margin-top: 0.4rem;
+}
+
+/* Atelier Template (Live) */
+.inv-atelier {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  text-align: center;
+}
+.inv-atelier-brand {
+  margin-bottom: 1.2rem;
+}
+.inv-atelier-monogram {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  border: 1px solid #222;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.8rem;
+  letter-spacing: 0.05em;
+  color: #111;
+}
+.inv-atelier-brand h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #111;
+  margin: 0;
+}
+.inv-atelier-brand p {
+  font-size: 1.1rem;
+  color: #777;
+  margin: 0.2rem 0 0;
+  letter-spacing: 0.05em;
+}
+.inv-atelier-title-area {
+  border-top: 1px solid #ebe7df;
+  border-bottom: 1px solid #ebe7df;
+  padding: 1.4rem 0 1.2rem;
+  margin: 0.8rem 0 1.6rem;
+}
+.inv-atelier-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 3.4rem;
+  font-weight: 400;
+  color: #111;
+  margin: 0 0 0.3rem 0;
+  line-height: 1;
+}
+.inv-atelier-subtitle {
+  font-size: 1.05rem;
+  color: #888;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.inv-atelier-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: left;
+  font-size: 1.15rem;
+  margin-bottom: 1.8rem;
+}
+.inv-atelier-meta-grid .inv-text-right {
+  text-align: right;
+}
+.inv-atelier-meta-grid p {
+  margin: 0.2rem 0;
+  line-height: 1.35;
+}
+.inv-atelier-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 1.6rem;
+  text-align: left;
+}
+.inv-atelier-row {
+  display: flex;
+  align-items: baseline;
+  font-size: 1.25rem;
+}
+.inv-atelier-item-name {
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+}
+.inv-atelier-item-desc {
+  font-size: 1.1rem;
+  color: #777;
+  margin-left: 0.6rem;
+  white-space: nowrap;
+}
+.inv-atelier-dots {
+  flex: 1;
+  border-bottom: 1px dotted #b8b3a8;
+  margin: 0 0.8rem;
+  min-width: 2rem;
+}
+.inv-atelier-item-val {
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+}
+.inv-atelier-due {
+  text-align: center;
+  margin: 1.2rem 0;
+}
+.inv-atelier-due .inv-label {
+  letter-spacing: 0.15em;
+  margin-bottom: 0.2rem;
+}
+.inv-atelier-amount {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #111;
+}
+.inv-atelier-subtext {
+  font-size: 1.05rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+.inv-atelier-signature-block {
+  margin-top: auto;
+  text-align: center;
+}
+.inv-atelier-sig-svg {
+  width: 12rem;
+  height: 3rem;
+  margin: 0 auto;
+}
+.inv-atelier-signer {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  color: #222;
+  margin: 0.2rem 0 0;
+}
+.inv-atelier-role {
+  font-size: 1.05rem;
+  color: #888;
+  margin: 0.1rem 0 0.6rem;
+}
+.inv-atelier-payline {
+  font-size: 1.05rem;
+  color: #888;
+}
+
+/* Classic Template (Live) */
+.inv-classic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 1.6rem;
+  border-bottom: 1.5px solid #ece7dc;
+}
+.inv-classic-brand {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.inv-classic-dot {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: #d4a037;
+}
+.inv-classic-brand h4 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+.inv-classic-brand p {
+  font-size: 1.15rem;
+  color: #777;
+  margin: 0.2rem 0 0;
+}
+.inv-classic-tag {
+  background: #d4a037;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+.inv-classic-meta-top p {
+  margin: 0.2rem 0;
+  font-size: 1.15rem;
+}
+.inv-classic-parties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid #ece7dc;
+  font-size: 1.2rem;
+}
+.inv-classic-parties p {
+  margin: 0.2rem 0;
+}
+.inv-classic-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4rem 0;
+  font-size: 1.2rem;
+}
+.inv-classic-table th {
+  text-align: left;
+  font-size: 1.05rem;
+  color: #777;
+  border-bottom: 1.5px solid #111;
+  padding-bottom: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.inv-classic-table td {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #f0ede6;
+  vertical-align: top;
+}
+.inv-classic-table td p {
+  font-size: 1.05rem;
+  color: #888;
+  margin: 0.2rem 0 0;
+}
+.inv-classic-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+.inv-classic-totals {
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.inv-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  color: #555;
+}
+.inv-total-highlight {
+  border-top: 1.5px solid #111;
+  padding-top: 0.6rem;
+  margin-top: 0.4rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Wordmark Template (Live) */
+.inv-wm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 3px solid #111;
+  padding-bottom: 1.2rem;
+}
+.inv-wm-logo {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin: 0;
+  line-height: 1;
+}
+.inv-wm-meta {
+  text-align: right;
+  font-size: 1.15rem;
+}
+.inv-wm-hero {
+  padding: 1.6rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.inv-wm-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4rem 0;
+}
+.inv-wm-items-table th {
+  border-bottom: 2px solid #111;
+  padding-bottom: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.inv-wm-items-table td {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #ece7dc;
+  font-size: 1.2rem;
+}
+.inv-wm-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+  border-top: 2px solid #111;
+  padding-top: 1.2rem;
+}
+
+/* Monolith Template (Live) */
+.inv-monolith {
+  padding: 0 !important;
+  flex-direction: row !important;
+}
+.inv-monolith-side {
+  width: 7.2rem;
+  background: #111;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.4rem 0;
+}
+.inv-monolith-vertical-txt {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  letter-spacing: 0.3em;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+.inv-monolith-body {
+  flex: 1;
+  padding: 2.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Statement Template (Live) */
+.inv-statement {
+  padding: 0 !important;
+}
+.inv-statement-banner {
+  background: #141414;
+  color: #fff;
+  padding: 2.4rem 2.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.inv-statement-banner h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #f2ae38;
+  margin: 0.4rem 0 0;
+}
+.inv-statement-body {
+  padding: 2.4rem 2.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Ledger Template (Live) */
+.inv-ledger {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+.inv-ledger table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.inv-ledger table th,
+.inv-ledger table td {
+  border: 1px solid #111;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.15rem;
+}
+.inv-ledger table th {
+  background: #f4f2ec;
+}
+
+/* Editorial & Folio Templates */
+.inv-editorial-header {
+  border-bottom: 2px solid #111;
+  padding-bottom: 1.4rem;
+}
+.inv-editorial-title {
+  font-family: Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+.inv-folio-grid {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 2rem;
+  height: 100%;
+}
+
+/* Ensure intro video fills container cleanly and renders across all modern browsers */
+.index-intro {
+  visibility: visible !important;
+}
+.index-intro-video {
+  visibility: visible !important;
+  overflow: hidden;
+  position: relative;
+}
+.index-intro-video aside {
+  pointer-events: none !important;
+}
+.index-intro-video video {
+  visibility: visible !important;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #101010;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
