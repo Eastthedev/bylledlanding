@@ -7,6 +7,7 @@ uniform sampler2D uDataTexture;
 uniform sampler2D uTexture;
 
 uniform vec4 resolution;
+uniform vec2 uCenter;
 uniform vec2 uMouse;
 uniform float uGridSize;
 uniform bool uHighlightHoveredCell;
@@ -14,11 +15,12 @@ varying vec2 vUv;
 varying vec3 vPosition;
 
 void main() {
-  vec2 newUV = (vUv - vec2(0.5)) * resolution.zw + vec2(0.5, 0.555);
+  vec2 newUV = (vUv - vec2(0.5)) * resolution.zw + uCenter;
   vec4 color = texture2D(uTexture, newUV);
   vec4 offset = texture2D(uDataTexture, vUv);
   
-  vec4 finalColor = texture2D(uTexture, newUV - 0.02 * offset.rg);
+  vec2 sampleUV = clamp(newUV - 0.02 * offset.rg, 0.0, 1.0);
+  vec4 finalColor = texture2D(uTexture, sampleUV);
   
   if (uHighlightHoveredCell) {
     float mouseGridX = floor(uMouse.x * uGridSize);
@@ -55,6 +57,7 @@ export class HeroDistortion {
     this.container = container;
     this.width = container.offsetWidth || 1512;
     this.height = container.offsetHeight || 865;
+    this.imageAspect = 865.36 / 1512;
     
     this.scene = new THREE.Scene();
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -89,10 +92,10 @@ export class HeroDistortion {
   }
 
   mouseEvents() {
-    window.addEventListener('mousemove', (e) => {
+    const handleCoord = (clientX, clientY) => {
       const rect = this.container.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / this.width;
-      const y = (e.clientY - rect.top) / this.height;
+      const x = (clientX - rect.left) / this.width;
+      const y = (clientY - rect.top) / this.height;
       
       this.mouse.x = clamp(x, 0, 1);
       this.mouse.y = clamp(y, 0, 1);
@@ -100,11 +103,21 @@ export class HeroDistortion {
       this.mouse.vY = this.mouse.y - this.mouse.prevY;
       this.mouse.prevX = this.mouse.x;
       this.mouse.prevY = this.mouse.y;
-    });
+    };
+
+    window.addEventListener('mousemove', (e) => handleCoord(e.clientX, e.clientY));
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) {
+        handleCoord(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
   }
 
   setupResize() {
     window.addEventListener('resize', () => this.resize());
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => this.resize(), 100);
+    });
   }
 
   resize() {
@@ -114,7 +127,6 @@ export class HeroDistortion {
     
     this.renderer.setSize(this.width, this.height);
     this.camera.aspect = this.width / this.height;
-    this.imageAspect = 865.36 / 1512;
     
     let a1, a2;
     if (this.height / this.width > this.imageAspect) {
@@ -125,11 +137,18 @@ export class HeroDistortion {
       a2 = (this.height / this.width) / this.imageAspect;
     }
     
+    const isMobile = window.innerWidth <= 768;
+    // On mobile keep the phone perfectly centered vertically without clipping top/bottom
+    const centerY = isMobile ? 0.50 : 0.555;
+    
     if (this.material) {
       this.material.uniforms.resolution.value.x = this.width;
       this.material.uniforms.resolution.value.y = this.height;
       this.material.uniforms.resolution.value.z = a1;
       this.material.uniforms.resolution.value.w = a2;
+      if (this.material.uniforms.uCenter) {
+        this.material.uniforms.uCenter.value.set(0.5, centerY);
+      }
     }
     
     this.camera.updateProjectionMatrix();
@@ -164,7 +183,10 @@ export class HeroDistortion {
     this.regenerateGrid();
     
     const textureLoader = new THREE.TextureLoader();
-    const mainTexture = textureLoader.load('/images/index-hero-hd.webp', () => {
+    const mainTexture = textureLoader.load('/images/index-hero-hd.webp', (tex) => {
+      if (tex.image && tex.image.width && tex.image.height) {
+        this.imageAspect = tex.image.height / tex.image.width;
+      }
       this.resize();
     });
     
@@ -173,6 +195,7 @@ export class HeroDistortion {
       uniforms: {
         time: { value: 0 },
         resolution: { value: new THREE.Vector4() },
+        uCenter: { value: new THREE.Vector2(0.5, 0.555) },
         uTexture: { value: mainTexture },
         uDataTexture: { value: this.texture },
         uMouse: { value: new THREE.Vector2(0.5, 0.5) },

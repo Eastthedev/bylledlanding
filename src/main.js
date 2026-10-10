@@ -290,12 +290,11 @@ document.addEventListener('DOMContentLoaded', async () => {
           ease: 'power2.inOut',
           stagger: { amount: 0.8, from: 'random', ease: 'power2.in' }
         }, '<')
-        .to('.index-hero-media', {
-          y: '20rem',
-          clipPath: 'inset(0% 0% 0rem 0%)',
-          duration: 1,
-          ease: 'power2.inOut'
-        }, 1)
+        .fromTo('.index-hero-media',
+          { autoAlpha: 0, scale: 0.96 },
+          { autoAlpha: 1, scale: 1, duration: 0.9, ease: 'power2.out', clipPath: 'inset(0% 0% 0rem 0%)' },
+          0.3
+        )
         .set('.index-intro', { opacity: 1 });
       return tl;
     }
@@ -347,6 +346,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Trigger hero intro
   createHeroIntroTimeline().play();
+  if (heroDistort) {
+    setTimeout(() => heroDistort.resize(), 150);
+    setTimeout(() => heroDistort.resize(), 600);
+  }
 
   // 12. Master Timeline and Step-Based Scroll Orchestration
   if (isMobile) {
