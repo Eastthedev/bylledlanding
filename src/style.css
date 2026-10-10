@@ -74,6 +74,83 @@
     right: 0 !important;
     transform: none !important;
     z-index: 9999 !important;
+    pointer-events: auto !important;
+  }
+
+  .index-header-hamburger {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 4.4rem !important;
+    height: 4.4rem !important;
+    padding: 0.6rem !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+
+  .index-header-hamburger svg {
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+    pointer-events: none !important;
+  }
+
+  .index-header-mobile {
+    position: fixed !important;
+    top: 1.2rem !important;
+    left: 1.2rem !important;
+    right: 1.2rem !important;
+    background-color: #aee000 !important;
+    border-radius: 1.2rem !important;
+    box-shadow: 0 1.2rem 3.6rem rgba(0, 0, 0, 0.6) !important;
+    padding: 4.8rem 2.4rem 2.4rem !important;
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+    touch-action: auto !important;
+  }
+
+  .index-header-mobile-close {
+    position: absolute !important;
+    top: 1.2rem !important;
+    right: 1.2rem !important;
+    width: 4rem !important;
+    height: 4rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+
+  .index-header-mobile-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+  }
+
+  .index-header-mobile-nav a {
+    font-family: "PP Neue Montreal", sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 600 !important;
+    color: #0a150e !important;
+    padding: 1rem 0.6rem !important;
+    text-decoration: none !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    border-radius: 0.8rem !important;
+    transition: opacity 0.15s ease, background-color 0.15s ease !important;
+  }
+
+  .index-header-mobile-nav a:active {
+    opacity: 0.6 !important;
+    background-color: rgba(10, 21, 14, 0.08) !important;
   }
 
   .index-hero {

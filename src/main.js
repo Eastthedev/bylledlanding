@@ -223,19 +223,65 @@ document.addEventListener('DOMContentLoaded', async () => {
   const mobileMenu = document.getElementById('index-mobile-menu');
   const mobileClose = document.querySelector('.index-header-mobile-close');
 
+  const closeMobileMenu = () => {
+    if (!mobileMenu) return;
+    mobileMenu.style.display = 'none';
+    hamburger?.setAttribute('aria-expanded', 'false');
+  };
+
+  const openMobileMenu = () => {
+    if (!mobileMenu) return;
+    mobileMenu.style.display = 'block';
+    hamburger?.setAttribute('aria-expanded', 'true');
+  };
+
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      mobileMenu.style.display = 'block';
-      hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (mobileMenu.style.display === 'block') {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
-    mobileClose?.addEventListener('click', () => {
-      mobileMenu.style.display = 'none';
-      hamburger.setAttribute('aria-expanded', 'false');
+
+    mobileClose?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeMobileMenu();
     });
+
+    document.addEventListener('click', (e) => {
+      if (mobileMenu.style.display === 'block') {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+          closeMobileMenu();
+        }
+      }
+    });
+
+    const mobileSectionMap = {
+      'Home': '.index-hero',
+      'About': '.index-intro',
+      'Portfolio': '.index-companies',
+      'Invoices': '.index-invoices',
+      'Services': '.index-services',
+      'Career': '.index-team',
+      'Contact': '.index-footer'
+    };
+
     document.querySelectorAll('.index-header-mobile-nav a').forEach((a) => {
-      a.addEventListener('click', () => {
-        mobileMenu.style.display = 'none';
-        hamburger.setAttribute('aria-expanded', 'false');
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMobileMenu();
+        const text = a.textContent.trim();
+        const selector = mobileSectionMap[text];
+        if (selector) {
+          const target = document.querySelector(selector);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
       });
     });
   }
