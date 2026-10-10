@@ -71,7 +71,7 @@ const peeps = [
 ];
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const isMobile = window.innerWidth < 768;
+  const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window && window.innerWidth < 1024);
 
   // 1. Setup split typography
   setupIntroSplit();
@@ -644,7 +644,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Desktop Observer for smooth, directional section scrolling
   Observer.create({
     target: window,
-    type: "wheel,touch",
+    type: "wheel",
     tolerance: 15,
     preventDefault: true,
     onDown: () => {
